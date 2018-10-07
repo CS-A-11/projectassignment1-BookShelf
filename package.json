@@ -1,0 +1,19 @@
+{
+  "name": "projectassignment1-l164305-lhr-nu-edu-pk",
+  "version": "1.0.0",
+  "description": "locator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CS-A-11/projectassignment1-l164305-lhr-nu-edu-pk.git"
+  },
+  "author": "l164305",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CS-A-11/projectassignment1-l164305-lhr-nu-edu-pk/issues"
+  },
+  "homepage": "https://github.com/CS-A-11/projectassignment1-l164305-lhr-nu-edu-pk#readme"
+}
