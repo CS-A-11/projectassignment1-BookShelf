@@ -1,5 +1,5 @@
 module.exports.showLogin= function(req, res) {
-    res.render("home-page", {
+    res.render("home-page.pug", {
         title: "Book Shelf Online market Place for Books",
         pageHeader: {
           title: "BookShelf",
@@ -9,7 +9,7 @@ module.exports.showLogin= function(req, res) {
       });
     };
 module.exports.homePage=function(req,res){
-    res.render("home-page",{
+    res.render("home-page.pug",{
         title:"BookShelf",
         title1:"finds used and new books online"
         
@@ -17,13 +17,13 @@ module.exports.homePage=function(req,res){
     });
 };
 module.exports.myHomePage=function(req,res){
-    res.render("home-page-layout",{
+    res.render("home-page-layout.pug",{
         title:"Book Shelf"
         
     });
 };
 module.exports.searchBook=function(req,res){
-    res.render("Search-Book",{
+    res.render("Search-Book.pug",{
         title: "Book Shelf Online market Place for Books",
         pageHeader: {
           title: "BookShelf",
@@ -33,7 +33,7 @@ module.exports.searchBook=function(req,res){
     });
 };
 module.exports.showBook=function(req,res){
-    res.render("Show-Book",{
+    res.render("Show-Book.pug",{
         title: "Book Shelf Online market Place for Books",
         pageHeader: {
             title: "BookShelf",
