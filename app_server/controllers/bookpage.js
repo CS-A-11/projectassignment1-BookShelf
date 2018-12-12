@@ -36,7 +36,8 @@ module.exports.showAllBooks=function(req,res){
     var oid = req.session.user._id;
     var thor={
         id:req.session.user._id,
-        username:req.session.user.username
+        username:req.session.user.username,
+        phoneNumber:req.session.user.phoneNumber
     }
     
     var newBook = {name: name ,Author:au, image: image, description: desc , category:cat , condition:con,price:pr , genre:ge,user:thor }
@@ -155,7 +156,7 @@ module.exports.deleteBook=function(req,res){
             else{
                 //send a JSON response
                 console.log("Book Deleted");
-                res.redirect('/DeleteBook');
+                res.redirect('/userDashboard');
             }
         });
     }

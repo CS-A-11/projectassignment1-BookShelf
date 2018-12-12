@@ -1,7 +1,7 @@
 <% include partials/header %>
     <div class="container container-form2">   
         <h1 style="text-align:center;">Add Book</h1>             
-        <form action="/AllBooks" method="POST">
+        <form action="/allBooks/<%= book._id %>?_method=PUT" method="POST">
             <div class="form-group">
                 <input class="form-control" type="text" name="name" value="<%= book.name %>" required minlength="3"> 
             </div>

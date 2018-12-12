@@ -26,7 +26,7 @@ var ObjectID=Schema.Types.ObjectId;
      type: String, 
   },
   phoneNumber: {
-    type: Number, 
+    type: String, 
     required: true,
   },
 
@@ -56,7 +56,8 @@ var bookSchema=new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"User"
         },
-        username:String
+        username:String,
+        phoneNumber:String
     }
 });
 mongoose.model("Book", bookSchema);
