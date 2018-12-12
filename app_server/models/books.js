@@ -1,5 +1,8 @@
 var mongoose = require("mongoose");
 // var bcrypt = require('bcrypt');
+var express = require('express');
+
+
 var Schema = mongoose.Schema;
 var ObjectID=Schema.Types.ObjectId;
  var UserSchema = new mongoose.Schema({
@@ -21,9 +24,14 @@ var ObjectID=Schema.Types.ObjectId;
    },
    passwordConf: {
      type: String, 
+  },
+  phoneNumber: {
+    type: Number, 
     required: true,
   },
-  booksAdded: [ObjectID]
+
+  booksAdded: [String],
+  
 });
 // UserSchema.pre('save', function (next) {
 //     var user = this;
@@ -38,11 +46,18 @@ var ObjectID=Schema.Types.ObjectId;
 var bookSchema=new mongoose.Schema({
     name:String,
     description:String,
+    image:String,
     Author:String,
     condition: { type: Number, default: 0, min: 0, max: 10 },
     price : {type:Number , default:0, min:0},
     genre : String,
-    addedBy : { type: ObjectID , required:true}
+    user:{
+        id:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"User"
+        },
+        username:String
+    }
 });
 mongoose.model("Book", bookSchema);
 mongoose.model("User", UserSchema);

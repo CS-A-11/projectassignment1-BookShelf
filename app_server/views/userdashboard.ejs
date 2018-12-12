@@ -1,2 +1,14 @@
 <% include partials/header %>
-<h1 style="text-align:center;">Welcome to User Dashboard</h1>
+<div class = "main-user-detail col-xs-12">
+        User Name: <%= username %> </br></br>
+
+        Email: <%= email %> </br></br>
+    
+        Phone No: <%= phone %> </br></br>
+        
+
+</div>
+
+    <a class="btn btn-primary btn-large " id = "show-button" href="/showUploadedBooks" >  Show uploaded books</a> 
+
+    <% include partials/footer %>

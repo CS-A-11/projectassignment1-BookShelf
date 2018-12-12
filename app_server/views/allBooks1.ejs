@@ -1,0 +1,26 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="row text-center" >
+    <% AllBooks.forEach(function(Books){ %>
+        
+            <div class="col-md-3 col-sm-6 catalog">
+
+                    <img class= " img-catalog"src="<%= Books.image %>" alt ="<%= Books.name %> ">
+
+                    <div class = "btn-group-justified">
+                            <a href="/AllBooks/<%= Books._id %>" class="btn btn-primary ">Info
+                            </a>
+                            <a href="/DeleteBook/<%= Books._id %>" class="btn btn-primary ">Delete
+                            </a>          
+                            <a href="/AllBooks/<%= Books._id %>/edit" class="btn btn-primary">Edit
+                            </a>          
+                    </div>
+<!--                    <a href="/AllBooks/<%= Books._id %>" class="btn btn-lg btn-block btn-primary">$ <%= Books.price %></a>
+    -->        
+            </div>  
+    <% }); %>
+    </div>
+</div>
+<% include partials/footer %> 
+

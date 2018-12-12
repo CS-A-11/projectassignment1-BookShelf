@@ -1,5 +1,5 @@
 module.exports.showLogin= function(req, res) {
-    res.render("home-page.pug", {
+    res.render("home-page.ejs", {
         title: "Book Shelf Online market Place for Books",
         pageHeader: {
           title: "BookShelf",
@@ -9,7 +9,7 @@ module.exports.showLogin= function(req, res) {
       });
     };
 module.exports.homePage=function(req,res){
-    res.render("home-page.pug",{
+    res.render("home-page.ejs",{
         title:"BookShelf",
         title1:"finds used and new books online"
         

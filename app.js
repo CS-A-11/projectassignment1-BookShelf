@@ -4,6 +4,10 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var session = require("express-session");
+var fs = require('fs');
+var multer = require('multer');
+var bodyParser = require('body-parser');
+var methodOverrider = require('method-override');
 require('./app_server/models/db');
 
 var homeRouter=require("./app_server/routes/home");
@@ -19,13 +23,31 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(session({resolve:true , saveUninitialized:true ,secret:"mySecret" }));
+app.use(function(req,res,next){
+    res.locals.session = req.session;    
+    next();
+})
 app.use("/", homeRouter);
+app.use(bodyParser());
+app.use(methodOverrider("_method"));
 //app.use("/users/my", usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+//app.use(function(req, res, next) {
+//  next(createError(404));
+//});
+// image uploader
+ var Storage = multer.diskStorage({
+     destination: function(req, file, callback) {
+         callback(null, "./Images");
+     },
+     filename: function(req, file, callback) {
+         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
+     }
+ });
+ var upload = multer({
+     storage: Storage
+ }).array("imgUploader", 3); //Field name and max count
 
 // error handler
 app.use(function(err, req, res, next) {
